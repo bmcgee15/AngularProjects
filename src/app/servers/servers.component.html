@@ -1,1 +1,36 @@
+<label>Server Name</label>
+<!-- one way binding -->
+<!--<input-->
+  <!--type="text"-->
+  <!--class="form-control"-->
+  <!--(input)="onUpdateServerName($event)">-->
+
+<!-- two way binding -->
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="serverName">
+<!--<p>{{ serverName }}</p>-->
+
+
+<!-- [] property binding syntax -->
+<!-- () event binding syntax -->
+<button
+  class='btn btn-primary'
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()">Add Server</button>
+<!-- <p>{{ allowNewServer }}</p> string interpolation -->
+<!-- use string interpolation when just simple text, if change property,
+html element or directive, or component, use property binding
+DO NOT MIX -->
+<!-- <p [innerText]="allowNewServer"></p> Property Binding -->
+<!--<p>{{ serverCreationStatus }}</p>-->
+
+<!--V ngIf is a structural directive-->
+<p *ngIf="serverCreated; else noServer">Server was created, server name is {{ serverName }}</p>
+<ng-template #noServer>
+  <p>No server was created!</p>
+</ng-template>
 <p>Servers Work</p>
+
+<app-server *ngFor="let server of servers"></app-server>

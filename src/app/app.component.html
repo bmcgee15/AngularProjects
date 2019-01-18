@@ -10,10 +10,18 @@
       </div>
 
       <!-- <router-outlet></router-outlet>-->
+      <app-email></app-email>
       <app-server></app-server>
       <app-servers></app-servers>
-      <app-server></app-server>
-      <app-servers></app-servers>
+      <button class="btn btn-primary" (click)="onToggleDetails()">Toggle</button>
+      <p *ngIf="showSecret">Muhaha</p>
+      <div
+      *ngFor="let logItem of log; let i = index"
+      [ngStyle]="{'background-color': i >= 5 ? 'yellow' : 'transparent'}"
+      [ngClass]="{'white-text': i >=5}"
+      >
+      {{ logItem }}
+      </div>
     </div>
   </div>
 </div>

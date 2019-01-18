@@ -1,1 +1,7 @@
-<p>Server Works</p>
+<!-- {{ this string interpolation can be used for any expression which can
+be resolved into a string, cant use ifs, loop, only ternary }} -->
+<p [ngStyle]="{backgroundColor: getColor()}"
+  [ngClass]="{online: serverStatus === 'online'}">
+  {{ 'Server' }} ID: {{ serverId }} Server Status: {{ getServerStatus() }}
+</p>
+
